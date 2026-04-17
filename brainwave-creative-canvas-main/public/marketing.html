@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRAINWAVE. - Creative Marketing Agency</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --accent-color: #F5C518;
+            --text-color: #ffffff;
+            --card-bg: #111111;
+            --border-color: #222222;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'DM Sans', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3,
+        .heading-font {
+            font-family: 'Syne', sans-serif;
+        }
+
+        /* Utility */
+        .text-accent {
+            color: var(--accent-color);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .flex-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .section-padding {
+            padding: 100px 20px;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: background 0.3s ease;
+        }
+
+        nav.solid {
+            background-color: var(--bg-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            text-decoration: none;
+            color: var(--text-color);
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-cta {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Hero */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 7rem);
+            line-height: 1;
+            margin-bottom: 30px;
+            font-weight: 800;
+        }
+
+        .hero-title .line-1 {
+            display: block;
+        }
+
+        .hero-title .line-2 {
+            display: block;
+            color: transparent;
+            -webkit-text-stroke: 2px var(--accent-color);
+        }
+
+        .hero-title .line-3 {
+            display: block;
+            color: var(--accent-color);
+        }
+
+        .hero-desc {
+            max-width: 600px;
+            font-size: 1.1rem;
+            color: #aaaaaa;
+            margin-bottom: 20px;
+        }
+
+        /* Ticker */
+        .ticker-wrap {
+            width: 100%;
+            overflow: hidden;
+            background-color: var(--card-bg);
+            padding: 20px 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .ticker {
+            display: flex;
+            white-space: nowrap;
+            animation: ticker 20s linear infinite;
+        }
+
+        .ticker-item {
+            color: var(--accent-color);
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-right: 40px;
+        }
+
+        @keyframes ticker {
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+
+            100% {
+                transform: translate3d(-50%, 0, 0);
+            }
+        }
+
+        /* Method */
+        .method {
+            text-align: center;
+        }
+
+        .method-title {
+            font-size: clamp(2rem, 5vw, 4rem);
+            margin-bottom: 60px;
+            line-height: 1.1;
+        }
+
+        .method-title .outline {
+            color: transparent;
+            -webkit-text-stroke: 1px var(--accent-color);
+            display: block;
+        }
+
+        .method-cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .method-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 40px;
+            border-radius: 12px;
+            width: 350px;
+            text-align: center;
+        }
+
+        .method-card .number {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .method-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .method-card p {
+            color: #aaaaaa;
+        }
+
+        /* Work */
+        .work {
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .work-title {
+            font-size: clamp(2rem, 5vw, 4rem);
+            margin-bottom: 60px;
+        }
+
+        .case-study {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 50px;
+        }
+
+        .case-study-img {
+            width: 100%;
+            height: 400px;
+            background-color: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .case-study-content {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .cat-label {
+            color: var(--accent-color);
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .case-title {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .case-tagline {
+            color: var(--accent-color);
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .case-desc {
+            color: #aaaaaa;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .case-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .stat h4 {
+            font-size: 2.5rem;
+            font-family: 'Syne', sans-serif;
+            color: var(--text-color);
+        }
+
+        .stat p {
+            color: #888;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        /* Trusted By */
+        .trusted {
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .trusted-label {
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .trusted-title {
+            font-size: clamp(2rem, 5vw, 4rem);
+            margin-bottom: 40px;
+        }
+
+        .marquee-container {
+            margin-top: 40px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .marquee-row {
+            display: flex;
+            width: max-content;
+            animation: scroll-left 30s linear infinite;
+        }
+
+        .marquee-row.reverse {
+            animation: scroll-right 30s linear infinite;
+        }
+
+        .brand-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-right: 20px;
+            min-width: 250px;
+        }
+
+        .brand-initial {
+            background-color: rgba(245, 197, 24, 0.1);
+            color: var(--accent-color);
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        .brand-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .brand-info p {
+            color: #888;
+            font-size: 0.8rem;
+        }
+
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes scroll-right {
+            0% {
+                transform: translateX(-50%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        /* Services */
+        .services {
+            text-align: center;
+        }
+
+        .services-label {
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .services-title {
+            font-size: clamp(2rem, 5vw, 4rem);
+            margin-bottom: 60px;
+            line-height: 1.1;
+        }
+
+        .services-list {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .service-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            transition: transform 0.3s;
+        }
+
+        .service-item:first-child {
+            border-top: 1px solid var(--border-color);
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            color: var(--accent-color);
+        }
+
+        .service-item h3 {
+            font-size: 2rem;
+            transition: color 0.3s;
+        }
+
+        .service-item:hover h3 {
+            color: var(--accent-color);
+        }
+
+        .service-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .service-tags span {
+            font-size: 0.8rem;
+            color: #888;
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            padding: 5px 15px;
+        }
+
+        /* Stats */
+        .stats {
+            background-color: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 80px 20px;
+        }
+
+        .stats-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat-card {
+            text-align: center;
+            min-width: 200px;
+        }
+
+        .stat-card h4 {
+            font-size: 4rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        .stat-card p {
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        /* About */
+        .about {
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .about-label {
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .about-title {
+            font-size: clamp(2rem, 5vw, 4rem);
+            margin-bottom: 30px;
+            line-height: 1.1;
+        }
+
+        .about-desc {
+            color: #aaaaaa;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .team-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .team-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 50px;
+            border-radius: 12px;
+            width: 400px;
+            text-align: center;
+            transition: border-color 0.3s;
+        }
+
+        .team-card:hover {
+            border-color: rgba(245, 197, 24, 0.3);
+        }
+
+        .team-initial {
+            width: 70px;
+            height: 70px;
+            border: 1px solid var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            color: var(--accent-color);
+            margin: 0 auto 30px;
+        }
+
+        .team-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .team-card .role {
+            color: var(--accent-color);
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .team-card .desc {
+            color: #aaaaaa;
+            font-size: 0.95rem;
+        }
+
+        /* Contact */
+        .contact {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-grid {
+            display: flex;
+            gap: 80px;
+            flex-wrap: wrap;
+            text-align: left;
+        }
+
+        .contact-info,
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-label {
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .contact-title {
+            font-size: clamp(2rem, 5vw, 4rem);
+            margin-bottom: 30px;
+            line-height: 1.1;
+            text-align: center;
+        }
+
+        .contact-desc {
+            color: #aaaaaa;
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .contact-info {
+            align-items: center;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .contact-links a,
+        .contact-links span {
+            color: #888;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .contact-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            color: #666;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-color);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            padding: 10px 0;
+            outline: none;
+            transition: border-color 0.3s;
+            resize: none;
+            text-align: center;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-bottom-color: var(--accent-color);
+        }
+
+        .submit-btn {
+            display: inline-block;
+            background: transparent;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+            align-self: center;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            background: var(--accent-color);
+            color: var(--bg-color);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            border-top: 1px solid var(--border-color);
+            background-color: var(--card-bg);
+        }
+
+        .footer-logo {
+            font-family: 'Syne', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo span {
+            color: var(--accent-color);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .footer-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 1. Navbar -->
+    <nav id="navbar">
+        <a href="#" class="logo">BRAINWAVE<span>.</span></a>
+        <div class="nav-links">
+            <a href="#services">Services</a>
+            <a href="#work">Work</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <a href="#contact" class="nav-cta">Let's Talk &rarr;</a>
+    </nav>
+
+    <!-- 2. Hero -->
+    <section class="hero fade-in">
+        <h1 class="hero-title">
+            <span class="line-1">We're Allergic</span>
+            <span class="line-2">to Average</span>
+            <span class="line-3">Content.</span>
+        </h1>
+        <p class="hero-desc">If your content looks like everyone else's, it's costing you attention, trust, and
+            business. We fix that.</p>
+        <p class="hero-desc">Most brands are invisible online. Not because they're bad, but because they sound like
+            everyone else.</p>
+    </section>
+
+    <!-- 3. Scrolling Ticker -->
+    <div class="ticker-wrap fade-in">
+        <div class="ticker">
+            <div class="ticker-item">REELS & SHORTS ✦ SOCIAL MEDIA ✦ CONTENT CREATION ✦ GRAPHIC DESIGN ✦ BRAND STRATEGY
+                ✦ VIRAL MARKETING ✦</div>
+            <div class="ticker-item">REELS & SHORTS ✦ SOCIAL MEDIA ✦ CONTENT CREATION ✦ GRAPHIC DESIGN ✦ BRAND STRATEGY
+                ✦ VIRAL MARKETING ✦</div>
+            <div class="ticker-item">REELS & SHORTS ✦ SOCIAL MEDIA ✦ CONTENT CREATION ✦ GRAPHIC DESIGN ✦ BRAND STRATEGY
+                ✦ VIRAL MARKETING ✦</div>
+            <div class="ticker-item">REELS & SHORTS ✦ SOCIAL MEDIA ✦ CONTENT CREATION ✦ GRAPHIC DESIGN ✦ BRAND STRATEGY
+                ✦ VIRAL MARKETING ✦</div>
+        </div>
+    </div>
+
+    <!-- 4. Method Section -->
+    <section class="method section-padding fade-in">
+        <h2 class="method-title">
+            Thinking isn't linear.<br>
+            <span class="outline">Our method is.</span>
+        </h2>
+        <div class="method-cards">
+            <div class="method-card">
+                <div class="number">01</div>
+                <h3>Decode</h3>
+                <p>We approach briefs with curiosity, reading between the lines to grasp every need and uncover what
+                    makes your brand unique.</p>
+            </div>
+            <div class="method-card">
+                <div class="number">02</div>
+                <h3>Create</h3>
+                <p>Our multidisciplinary team refines ideas with care and expertise, crafting content that resonates and
+                    converts.</p>
+            </div>
+            <div class="method-card">
+                <div class="number">03</div>
+                <h3>Achieve</h3>
+                <p>We close the loop with precise, timely, and quality outputs — delivering results that speak for
+                    themselves.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services section-padding fade-in">
+        <div class="services-label">What We Do</div>
+        <h2 class="services-title">Ideas come in<br>many shapes.</h2>
+        <div class="services-list">
+            <div class="service-item">
+                <div class="service-icon">📣</div>
+                <h3>Social Media Marketing</h3>
+                <div class="service-tags"><span>Strategy</span><span>Community</span><span>Growth</span></div>
+            </div>
+            <div class="service-item">
+                <div class="service-icon">🎥</div>
+                <h3>Content Production</h3>
+                <div class="service-tags"><span>Reels</span><span>Video</span><span>Photography</span></div>
+            </div>
+            <div class="service-item">
+                <div class="service-icon">🎨</div>
+                <h3>Graphic Design</h3>
+                <div class="service-tags"><span>Branding</span><span>Visual Identity</span><span>Print</span></div>
+            </div>
+            <div class="service-item">
+                <div class="service-icon">🖋️</div>
+                <h3>Brand Strategy</h3>
+                <div class="service-tags"><span>Positioning</span><span>Voice</span><span>Direction</span></div>
+            </div>
+            <div class="service-item">
+                <div class="service-icon">📊</div>
+                <h3>Analytics & Growth</h3>
+                <div class="service-tags"><span>Data</span><span>Insights</span><span>Optimization</span></div>
+            </div>
+            <div class="service-item">
+                <div class="service-icon">🤝</div>
+                <h3>Influencer Marketing</h3>
+                <div class="service-tags"><span>Partnerships</span><span>Reach</span><span>Authenticity</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Work / Case Studies -->
+    <section id="work" class="work section-padding fade-in">
+        <h2 class="work-title">We let the work do the talking.</h2>
+
+        <div class="case-study">
+            <div class="case-study-img">
+                <span class="heading-font text-accent" style="font-size: 2rem; opacity: 0.5;">[ CREMEUX CAMPAIGN VISUAL
+                    ]</span>
+            </div>
+            <div class="case-study-content">
+                <div class="cat-label">Food & Beverage</div>
+                <h3 class="case-title">Cremeux</h3>
+                <p class="case-tagline">From 0 to Viral in One Post</p>
+                <p class="case-desc">Crafted a scroll-stopping social media campaign for Cremeux that exploded
+                    organically, turning a local dessert brand into a city-wide sensation.</p>
+                <div class="case-stats">
+                    <div class="stat">
+                        <h4>5,200+</h4>
+                        <p>Likes</p>
+                    </div>
+                    <div class="stat">
+                        <h4>50K+</h4>
+                        <p>Reach</p>
+                    </div>
+                    <div class="stat">
+                        <h4>300%</h4>
+                        <p>Growth</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-study">
+            <div class="case-study-img">
+                <span class="heading-font text-accent" style="font-size: 2rem; opacity: 0.5;">[ OG FITNESS CAMPAIGN
+                    VISUAL ]</span>
+            </div>
+            <div class="case-study-content">
+                <div class="cat-label">Health & Fitness</div>
+                <h3 class="case-title">OG Fitness</h3>
+                <p class="case-tagline">Building a Fitness Community Online</p>
+                <p class="case-desc">Developed a comprehensive content strategy including reels, stories, and engagement
+                    campaigns that built a dedicated fitness community from scratch.</p>
+                <div class="case-stats">
+                    <div class="stat">
+                        <h4>10K+</h4>
+                        <p>Likes</p>
+                    </div>
+                    <div class="stat">
+                        <h4>100K+</h4>
+                        <p>Reach</p>
+                    </div>
+                    <div class="stat">
+                        <h4>450%</h4>
+                        <p>Growth</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Trusted By / Clients -->
+    <section class="trusted section-padding fade-in">
+        <div class="trusted-label">Trusted By</div>
+        <h2 class="trusted-title">Brands we've grown together.</h2>
+
+        <div class="marquee-container">
+            <div class="marquee-row">
+                <!-- Duplicate twice for infinite scroll -->
+                <div class="brand-card">
+                    <div class="brand-initial">CC</div>
+                    <div class="brand-info">
+                        <h4>Cremeux Cafe</h4>
+                        <p>Food & Beverage</p>
+                    </div>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-initial">TD</div>
+                    <div class="brand-info">
+                        <h4>Toffee Doodle</h4>
+                        <p>F&B / Goa</p>
+                    </div>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-initial">OG</div>
+                    <div class="brand-info">
+                        <h4>OG Fitness</h4>
+                        <p>Health & Fitness</p>
+                    </div>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-initial">CD</div>
+                    <div class="brand-info">
+                        <h4>City Diagnostic Lab</h4>
+                        <p>Healthcare</p>
+                    </div>
+                </div>
+
+                <div class="brand-card">
+                    <div class="brand-initial">CC</div>
+                    <div class="brand-info">
+                        <h4>Cremeux Cafe</h4>
+                        <p>Food & Beverage</p>
+                    </div>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-initial">TD</div>
+                    <div class="brand-info">
+                        <h4>Toffee Doodle</h4>
+                        <p>F&B / Goa</p>
+                    </div>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-initial">OG</div>
+                    <div class="brand-info">
+                        <h4>OG Fitness</h4>
+                        <p>Health & Fitness</p>
+                    </div>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-initial">CD</div>
+                    <div class="brand-info">
+                        <h4>City Diagnostic Lab</h4>
+                        <p>Healthcare</p>
+                    </div>
+                </div>
+            </div>
+            <div class="marquee-row reverse">
+                <!-- Duplicate twice for infinite scroll -->
+                <div class="brand-card">
+                    <div class="brand-initial">AI</div>
+                    <div class="brand-info">
+                        <h4>Alegra Internet</h4>
+                        <p>Technology</p>
+                    </div>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-initial">BV</div>
+                    <div class="brand-info">
+                        <h4>Beyond Ventures</h4>
+                        <p>Business</p>
+                    </div>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-initial">UE</div>
+                    <div class="brand-info">
+                        <h4>Urban Eats</h4>
+                        <p>Restaurant</p>
+                    </div>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-initial">TR</div>
+                    <div class="brand-info">
+                        <h4>The Roastery</h4>
+                        <p>Cafe</p>
+                    </div>
+                </div>
+
+                <div class="brand-card">
+                    <div class="brand-initial">AI</div>
+                    <div class="brand-info">
+                        <h4>Alegra Internet</h4>
+                        <p>Technology</p>
+                    </div>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-initial">BV</div>
+                    <div class="brand-info">
+                        <h4>Beyond Ventures</h4>
+                        <p>Business</p>
+                    </div>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-initial">UE</div>
+                    <div class="brand-info">
+                        <h4>Urban Eats</h4>
+                        <p>Restaurant</p>
+                    </div>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-initial">TR</div>
+                    <div class="brand-info">
+                        <h4>The Roastery</h4>
+                        <p>Cafe</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats section-padding fade-in">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h4>50+</h4>
+                <p>Projects</p>
+            </div>
+            <div class="stat-card">
+                <h4>20+</h4>
+                <p>Clients</p>
+            </div>
+            <div class="stat-card">
+                <h4>5M+</h4>
+                <p>Reach</p>
+            </div>
+            <div class="stat-card">
+                <h4>300%</h4>
+                <p>Avg. Growth</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section-padding fade-in">
+        <div class="about-label">Who We Are</div>
+        <h2 class="about-title">Next time you wonder<br>who to trust,</h2>
+        <p class="about-desc">Brainwave Creative is a full-service marketing agency that specializes in making brands
+            impossible to ignore. We blend strategy with creativity to deliver results that speak for themselves.</p>
+
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-initial border-accent">R</div>
+                <h3>Rahul</h3>
+                <p class="role">Co-Founder & Business Operations Head</p>
+                <p class="desc">Drives business strategy and client relationships with a focus on sustainable growth.
+                </p>
+            </div>
+            <div class="team-card">
+                <div class="team-initial border-accent">E</div>
+                <h3>Eutica</h3>
+                <p class="role">Co-Founder & Creative Head</p>
+                <p class="desc">Leads creative direction and campaign conceptualization for impactful brand stories.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section-padding fade-in">
+        <div class="contact-label">Get In Touch</div>
+        <h2 class="contact-title">Let's work<br>together.</h2>
+        <p class="contact-desc">Ready to make your brand impossible to ignore? Drop us a message and let's talk about
+            how we can grow your presence.</p>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div class="contact-links">
+                    <a href="https://www.instagram.com/brainwave_creative/" target="_blank">@brainwave_creative</a>
+                    <a href="mailto:hello@brainwavecreative.com">hello@brainwavecreative.com</a>
+                    <span>Available for consultations</span>
+                </div>
+            </div>
+            <div class="contact-form">
+                <div class="form-group">
+                    <label>NAME</label>
+                    <input type="text" placeholder="Your name">
+                </div>
+                <div class="form-group">
+                    <label>EMAIL</label>
+                    <input type="email" placeholder="your@email.com">
+                </div>
+                <div class="form-group">
+                    <label>MESSAGE</label>
+                    <textarea rows="4" placeholder="Tell us about your project..."></textarea>
+                </div>
+                <button class="submit-btn" onclick="alert('Thanks! We\'ll get back to you soon.')">Send Message
+                    &rarr;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Footer -->
+    <footer class="fade-in">
+        <div class="footer-logo">BRAINWAVE<span>.</span></div>
+        <div class="footer-links">
+            <a href="#services">Services</a>
+            <a href="#work">Work</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="copyright">&copy; 2026 Brainwave Creative Agency. All Rights Reserved.</div>
+    </footer>
+
+    <!-- JS for scroll effects -->
+    <script>
+        // Sticky Navbar
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('solid');
+            } else {
+                navbar.classList.remove('solid');
+            }
+        });
+
+        // Intersection Observer for fade-in elements
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Trigger for elements already in view on load
+        setTimeout(() => {
+            document.querySelectorAll('.fade-in').forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight) {
+                    el.classList.add('visible');
+                }
+            });
+        }, 100);
+    </script>
+</body>
+
+</html>
